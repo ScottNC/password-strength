@@ -1,0 +1,14 @@
+:root {
+  --header: #2c5d63;
+  --background: #e0e0e0;
+}
+
+body {
+  background-color: var(--background);
+  font-family: sans-serif;
+  text-align: center;
+}
+
+h1 {
+  color: var(--header);
+}
