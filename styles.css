@@ -16,7 +16,7 @@ h1 {
   color: var(--header);
 }
 
-.progress::-webkit-progress-value {
+.progress {
   margin: 1%;
   width: 200px;
   height: 5px;
@@ -24,14 +24,22 @@ h1 {
   overflow: hidden;
 }
 
-.progress--low::-webkit-progress-value {
-  background: var(--low);
+.progress::-webkit-progress-value {
+  background: var(--status-color);
 }
 
-.progress--medium::-webkit-progress-value {
-  background: var(--medium);
+.progress::-moz-progress-bar {
+  background: var(--status-color);
 }
 
-.progress--high::-webkit-progress-value {
-  background: var(--high);
+.progress--low {
+  --status-color: var(--low);
+}
+
+.progress--medium {
+  --status-color: var(--medium);
+}
+
+.progress--high {
+  --status-color: var(--high);
 }
