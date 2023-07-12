@@ -1,6 +1,9 @@
 :root {
   --header: #2c5d63;
   --background: #e0e0e0;
+  --low: #ff1515;
+  --medium: #ec9c07;
+  --high: #0ac40a;
 }
 
 body {
@@ -11,4 +14,24 @@ body {
 
 h1 {
   color: var(--header);
+}
+
+.progress::-webkit-progress-value {
+  margin: 1%;
+  width: 200px;
+  height: 5px;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.progress--low::-webkit-progress-value {
+  background: var(--low);
+}
+
+.progress--medium::-webkit-progress-value {
+  background: var(--medium);
+}
+
+.progress--high::-webkit-progress-value {
+  background: var(--high);
 }
