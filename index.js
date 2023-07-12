@@ -8,9 +8,9 @@ progressBar.value = 0;
 progressBar.max = MAX_PASSWORD_VALUE;
 passwordInput.maxLength = MAX_PASSWORD_LENGTH;
 
-passwordInput.addEventListener('keypress', updateProgressBar);
+passwordInput.addEventListener('keydown', updateProgressBar);
 
-function updateProgressBar () {
-  const inputLength = passwordInput.value.length + 1;
+function updateProgressBar (event) {
+  const inputLength = passwordInput.value.length + (event.key === "Backspace" ? -1 : 1);
   progressBar.value = (MAX_PASSWORD_VALUE / MAX_PASSWORD_LENGTH) * inputLength;
 }
