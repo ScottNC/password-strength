@@ -5,8 +5,12 @@ const passwordInput = document.getElementById('password-type');
 const progressBar = document.getElementById('password-progress');
 
 progressBar.value = 0;
+progressBar.max = MAX_PASSWORD_VALUE;
+passwordInput.maxLength = MAX_PASSWORD_LENGTH;
 
-passwordInput.addEventListener('keypress', () => {
+passwordInput.addEventListener('keypress', updateProgressBar);
+
+function updateProgressBar () {
   const inputLength = passwordInput.value.length + 1;
-  progressBar.value = 5 * inputLength;
-});
+  progressBar.value = (MAX_PASSWORD_VALUE / MAX_PASSWORD_LENGTH) * inputLength;
+}
