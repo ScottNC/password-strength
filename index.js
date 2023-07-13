@@ -16,21 +16,23 @@ passwordInput.maxLength = MAX_PASSWORD_LENGTH;
 
 passwordInput.addEventListener('keydown', updateProgressBar);
 
-function updateProgressBar (event) {
-  const inputLength = passwordInput.value.length + (event.key === "Backspace" ? -1 : 1);
-  progressBar.value = (MAX_PASSWORD_VALUE / MAX_PASSWORD_LENGTH) * inputLength;
+function updateProgressBar () {
+  setTimeout(() => {
+    const inputLength = passwordInput.value.length;
+    progressBar.value = (MAX_PASSWORD_VALUE / MAX_PASSWORD_LENGTH) * inputLength;
 
-  if (inputLength <= LOW) {
-    progressBar.className = 'progress__bar progress__bar--low';
-    progressLabel.className = 'progress__label progress__label--low';
-    progressLabel.textContent = 'Should be longer';
-  } else if (inputLength <= MEDIUM) {
-    progressBar.className = 'progress__bar progress__bar--medium';
-    progressLabel.className = 'progress__label progress__label--medium';
-    progressLabel.textContent = 'Pretty good';
-  } else {
-    progressBar.className = 'progress__bar progress__bar--high';
-    progressLabel.className = 'progress__label progress__label--high';
-    progressLabel.textContent = 'Grrrreat!';
-  }
+    if (inputLength <= LOW) {
+      progressBar.className = 'progress__bar progress__bar--low';
+      progressLabel.className = 'progress__label progress__label--low';
+      progressLabel.textContent = 'Should be longer';
+    } else if (inputLength <= MEDIUM) {
+      progressBar.className = 'progress__bar progress__bar--medium';
+      progressLabel.className = 'progress__label progress__label--medium';
+      progressLabel.textContent = 'Pretty good';
+    } else {
+      progressBar.className = 'progress__bar progress__bar--high';
+      progressLabel.className = 'progress__label progress__label--high';
+      progressLabel.textContent = 'Grrrreat!';
+    }
+  }, 1);
 }
